@@ -20,6 +20,9 @@ app.use('/events', eventsRouter)
 const countersRouter = require('./routes/counters')
 app.use('/counters', countersRouter)
 
+const uersersRouter = require('./routes/users')
+app.use('/users', uersersRouter)
+
 app.listen(3000, () => console.log('server started'))
 
 

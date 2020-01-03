@@ -1,0 +1,12 @@
+GET http://localhost:3000/users/bob
+Content-Type: application/json
+Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhMSI6IkRhdGEgMSIsImRhdGEyIjoiRGF0YSAyIiwiZGF0YTMiOiJEYXRhIDMiLCJkYXRhNCI6IkRhdGEgNCIsImlhdCI6MTU3ODA1NTI3OSwiZXhwIjoxNTc4MjI4MDc5LCJhdWQiOiJodHRwOi8vbXlzb2Z0Y29ycC5pbiIsImlzcyI6Ik15c29mdCBjb3JwIiwic3ViIjoic29tZUB1c2VyLmNvbSJ9.Kgv8GwG256OX3jmt3d7SiQpuaDScJwTWUWEb-5ntTPhcJrH9UvrhKtjwjw1xKwH6xgleMFkxM66lle7uP-efkoODlbqqnLVam5EltSCmwSVaXvf6ggFd-Zh1FcCt9EbvnBNv9dwZYEfJQY52PrnT2LsES3iZcPDfXeFSrIhT6UQ
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "lol",
+  "status": "present"
+}
