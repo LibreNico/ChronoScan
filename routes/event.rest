@@ -1,0 +1,30 @@
+GET http://localhost:3000/events
+
+###
+
+GET http://localhost:3000/events/5e0def2c32718a6b31a7c398
+
+###
+
+DELETE http://localhost:3000/events/5e0e0876c466056d11222e77
+
+###
+POST http://localhost:3000/events
+Content-Type: application/json
+
+{
+      "name": "Laerbeek",
+      "description": "La dimanche 14 juin à 10h, le club Joggans organise un 10km dans le magnifique parc du Laerbeek. Le prix est de 7€ en pré-inscription.",
+      "imageSrc": "https://i1.wp.com/www.joggans.be/wp-content/uploads/2017/06/DSC00138.jpg",
+      "distances": [ "10km", "5km" ],
+      "challenges": ["Run in Brussels"],
+      "date": "2020-06-14T10:00:00Z"
+}
+
+###
+PATCH http://localhost:3000/events/5e0def2c32718a6b31a7c398
+Content-Type: application/json 
+
+{
+  "name": "10KM Laerbeek"
+}

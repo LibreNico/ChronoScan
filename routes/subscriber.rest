@@ -1,0 +1,43 @@
+GET http://localhost:3000/subscribers
+
+###
+
+GET http://localhost:3000/subscribers/5e0db2894fcbd867a32385fc
+
+###
+
+DELETE http://localhost:3000/subscribers/5e0e13ff19c9a46ea66acdc1
+
+###
+
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+  "lastName": "Crappe",
+  "firstName": "Nicolas",
+  "gender": true,
+  "mailingList": true,
+  "email": "crappe.nicolas@gmail.com",
+  "club": "Joggans",
+  "challenge": "Run in brussels",
+  "event_id": "5e0e093301ebd36d2be6ff25",
+  "birthDate": "1990-11-11",
+  "postalCode": 1090
+}
+
+###
+PATCH http://localhost:3000/subscribers/5e0dc1dbb078c2688670a1e2
+Content-Type: application/json 
+
+{
+  "name": "Tommy"
+}
+
+###
+PATCH http://localhost:3000/subscribers/5e0dc1dbb078c2688670a1e2
+Content-Type: application/json 
+
+{
+  "subscribedChannel": "Bob Channel"
+}

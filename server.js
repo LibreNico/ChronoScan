@@ -14,6 +14,12 @@ app.use(express.json())
 const subscribersRouter = require('./routes/subscribers')
 app.use('/subscribers', subscribersRouter)
 
+const eventsRouter = require('./routes/events')
+app.use('/events', eventsRouter)
+
+const countersRouter = require('./routes/counters')
+app.use('/counters', countersRouter)
+
 app.listen(3000, () => console.log('server started'))
 
 
