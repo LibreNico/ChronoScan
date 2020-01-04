@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Counters = require('./counter')
-var ObjectId = mongoose.Schema.Types.ObjectId;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 const counterId = "bankSeq";
 
 
@@ -43,7 +43,8 @@ var subscriberSchema = new mongoose.Schema({
   },
   event_id: {
     type: ObjectId,
-    required: true
+    required: true,
+    ref: 'Event',
   },
   subscribeDate: {
     type: Date,
