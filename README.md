@@ -4,7 +4,7 @@ App to subscribe to a run and to record the timing via BIB scanning
 ## Config
 
 ### Security
-In the `keys` folder you need to add your own RS256 `private.key` and `public.key`.
+In the `keys` folder you need to add your own RS256 `private.key` and `public.key`.<br />
 You can genareted them on http://travistidwell.com/jsencrypt/demo/ -> watch out the key size must 512bit!
 
 ### Mail
