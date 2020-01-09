@@ -14,12 +14,24 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  challenges: {
-    type: Array,
+  challenge: {
+    type: String,
     required: false
   },
-  distances: {
-    type: Array,
+  distance: {
+    type: String,
+    required: true
+  },
+  accountNumber: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  organization: {
+    type: String,
     required: true
   },
   date: {
@@ -32,5 +44,18 @@ const eventSchema = new mongoose.Schema({
     ref: 'User',
   }
 })
+
+eventSchema.pre('deleteOne', function (next) {
+  const eventId = this.getQuery()["_id"];
+  mongoose.model('Subscriber').deleteMany({'event_id': eventId}, function (err, result) {
+    if (err) {
+      console.log(`[error] ${err}`);
+      next(err);
+    } else {
+      console.log('Deleted all subcribers link to'+eventId);
+      next();
+    }
+  });
+});
 
 module.exports = mongoose.model('Event', eventSchema)

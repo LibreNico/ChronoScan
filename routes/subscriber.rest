@@ -2,11 +2,11 @@ GET http://localhost:3000/subscribers
 
 ###
 
-GET http://localhost:3000/subscribers/5e0db2894fcbd867a32385fc
+GET http://localhost:3000/subscribers/5e0e15ff068e0c6ee774658d
 
 ###
 
-DELETE http://localhost:3000/subscribers/5e0e13ff19c9a46ea66acdc1
+DELETE http://localhost:3000/subscribers/5e1398cc9bcdd98b5920c544
 
 ###
 
@@ -20,11 +20,18 @@ Content-Type: application/json
   "mailingList": true,
   "email": "crappe.nicolas@gmail.com",
   "club": "Joggans",
-  "challenge": "Run in brussels",
-  "event_id": "5e0e093301ebd36d2be6ff25",
+  "challenge": true,
+  "event_id": "5e178da77a2e1899b1f4819a",
   "birthDate": "1990-11-11",
   "postalCode": 1090
 }
+
+###
+POST http://localhost:3000/subscribers/confirmation/5e178da77a2e1899b1f4819a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1Nzg2MDE2NDgsImV4cCI6MTU3ODc3NDQ0OCwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.NYFONBk77aEQc9hD1NIBog422_SKwjEVkpUvq4xf1y86K5KRbUWv65eyIZQanDXLFbLFPyIA6PEqzz9vFDgCFOZiNA4PpAd2X64-jeTFV9Fmn8RxpFm6I88kOZeL0PoKNCsntlnQJplKiuAoxeBUeka-eVPN0NcpdyMvQq_WxMY
+
+[{"price":7, "structuredCom":"+++202/0111/12156+++"}]
 
 ###
 PATCH http://localhost:3000/subscribers/5e0dc1dbb078c2688670a1e2

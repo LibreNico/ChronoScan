@@ -34,11 +34,16 @@ var subscriberSchema = new mongoose.Schema({
     required: false
   },
   challenge: {
-    type: String,
-    required: false
+    type: Boolean,
+    required: true
   },
   bankTransferId: {
     type: String,
+    unique: true
+  },
+  active: {
+    type: Boolean,
+    default: false,
     unique: true
   },
   event_id: {

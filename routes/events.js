@@ -34,8 +34,11 @@ router.post('/', auth.authJwt, async (req, res) => {
         name: req.body.name,
         description: req.body.description,
         imageSrc: req.body.imageSrc,
-        distances: req.body.distances,
-        challenges: req.body.challenges,
+        distance: req.body.distance,
+        challenge: req.body.challenge,
+        organization: req.body.organization,
+        accountNumber: req.body.accountNumber,
+        price: req.body.price,
         date: req.body.date,
         user: req.user._id
     })
@@ -67,7 +70,7 @@ router.patch('/:id', auth.authJwt, getEvents, async (req, res) => {
 
 router.delete('/:id', auth.authJwt, getEvents, async (req, res) => {
     try {
-        await res.event.remove()
+        await Event.deleteOne({_id: res.event._id})
         res.json({ message: 'Deleted This event' })
     } catch (err) {
         res.status(500).json({ message: err.message })
