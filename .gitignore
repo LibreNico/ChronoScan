@@ -1,2 +1,3 @@
-keys/*
+keys/*.js
+keys/*.key
 node_modules/*
