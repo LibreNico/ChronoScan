@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Event = require('../models/event')
+const Subscriber = require('../models/subscriber')
 const auth = require('../services/auth.services');
 
 module.exports = router
@@ -23,8 +24,9 @@ router.get('/editable', auth.authJwt, async (req, res) => {
     }
 })
 
-router.get('/:id', getEvents, (req, res) => {
-    res.json(res.event)
+router.get('/:id', getEvents, async (req, res) => {
+    subcribers = await Subscriber.find({"event_id": req.params.id });
+    res.json({event:res.event, subcribers: subcribers})
 })
 
 
@@ -33,10 +35,11 @@ router.post('/', auth.authJwt, async (req, res) => {
     const event = new Event({
         name: req.body.name,
         description: req.body.description,
-        imageSrc: req.body.imageSrc,
+        imgSrc: req.body.imgSrc,
         distance: req.body.distance,
         challenge: req.body.challenge,
         organization: req.body.organization,
+        orgaUrl: req.body.orgaUrl,
         accountNumber: req.body.accountNumber,
         price: req.body.price,
         date: req.body.date,
@@ -54,10 +57,11 @@ router.post('/', auth.authJwt, async (req, res) => {
 router.patch('/:id', auth.authJwt, getEvents, async (req, res) => {
     if (req.body.name) res.event.name = req.body.name
     if (req.body.description) res.event.description = req.body.description
-    if (req.body.imageSrc) res.event.imageSrc = req.body.imageSrc
+    if (req.body.imgSrc) res.event.imgSrc = req.body.imgSrc
     if (req.body.distances) res.event.distances = req.body.distances
     if (req.body.challenges) res.event.challenges = req.body.challenges
     if (req.body.date) res.event.date = req.body.date
+    if (req.body.orgaUrl) res.event.orgaUrl = req.body.orgaUrl
 
     try {
         const updatedevent = await res.event.save()

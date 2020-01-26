@@ -10,30 +10,53 @@ GET http://localhost:3000/events/5e107efc47328e7fa7300175
 
 ###
 
-DELETE http://localhost:3000/events/5e178d2f1e712f99846151a8
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1Nzg2MDE2NDgsImV4cCI6MTU3ODc3NDQ0OCwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.NYFONBk77aEQc9hD1NIBog422_SKwjEVkpUvq4xf1y86K5KRbUWv65eyIZQanDXLFbLFPyIA6PEqzz9vFDgCFOZiNA4PpAd2X64-jeTFV9Fmn8RxpFm6I88kOZeL0PoKNCsntlnQJplKiuAoxeBUeka-eVPN0NcpdyMvQq_WxMY
+DELETE http://localhost:3000/events/5e2d8c14d92749d29faa7755
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1ODAwNDI4NTYsImV4cCI6MTU4MDIxNTY1NiwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.PhItxpQea69km0-gqr0ZtGiPEdf5IZSS_Qi2KnglBghqjzz0nj6GMG2LmvSu7UVGfu6KLC-OQiVnv3TQHMlaMTszW8kfdTGcDMGVMjmliWwV9SFtdnsoqgDrbih7elyfd2QdDB1wZSHQeiD1CK63yG0HPnzDW-S6hIPAunm0kCs
 
 ###
 POST http://localhost:3000/events
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1Nzg2MDE2NDgsImV4cCI6MTU3ODc3NDQ0OCwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.NYFONBk77aEQc9hD1NIBog422_SKwjEVkpUvq4xf1y86K5KRbUWv65eyIZQanDXLFbLFPyIA6PEqzz9vFDgCFOZiNA4PpAd2X64-jeTFV9Fmn8RxpFm6I88kOZeL0PoKNCsntlnQJplKiuAoxeBUeka-eVPN0NcpdyMvQq_WxMY
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1ODAwNDA2ODksImV4cCI6MTU4MDIxMzQ4OSwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.T0zAHtQR5WTal-LrZjALrl3BVBwLSeIr2FG4dMUbMwrsq2Xmx7uMLTlmHgsIKMZChX1_vgWiFJgNTMU_P_cTjLPC6E8V_CchnsPLbFJ1PB5NzIxKxFCMPGokGyB0mnl72_gL0Un-c3UqloHtkfunuzhrAqea2_Y-Mbza7Qo-0ws
 
 {
-      "name": "Laerbeek",
-      "description": "La dimanche 14 juin à 10h, le club Joggans organise un 10km dans le magnifique parc du Laerbeek. Le prix est de 7€ en pré-inscription.",
-      "imageSrc": "https://i1.wp.com/www.joggans.be/wp-content/uploads/2017/06/DSC00138.jpg",
-      "distance": "10km",
+      "name": "Les 10KM du Laerbeek",
+      "description": "Les 10 kilomètres du Laerbeek est une course organisé au sein d'un des plus beau esapce vert de Bruxelles: le bois du Laerbeek. Le secrétariat pour le retrait des dossard est ouvert de 08:00 à 9:30 étant donné que le départ est donné à 10h dans le parc. Il y a un vestiaire pour les coureurs et la possibilité de se restaurer après l'épreuve.",
+      "imgSrc": "https://i0.wp.com/www.joggans.be/wp-content/uploads/2019/06/LRX_3602.jpg",
+      "distance": "10 km",
       "challenge": "Run in Brussels",
       "date": "2020-06-14T10:00:00Z",
       "accountNumber":"BE30 9730 7689 9311",
       "organization":"Joggans",
+      "orgaUrl":"http://www.joggans.be/10km",
       "price":7
 }
 
+
 ###
-PATCH http://localhost:3000/events/5e0def2c32718a6b31a7c398
-Content-Type: application/json 
+POST http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1ODAwNDA2ODksImV4cCI6MTU4MDIxMzQ4OSwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.T0zAHtQR5WTal-LrZjALrl3BVBwLSeIr2FG4dMUbMwrsq2Xmx7uMLTlmHgsIKMZChX1_vgWiFJgNTMU_P_cTjLPC6E8V_CchnsPLbFJ1PB5NzIxKxFCMPGokGyB0mnl72_gL0Un-c3UqloHtkfunuzhrAqea2_Y-Mbza7Qo-0ws
 
 {
-  "name": "10KM Laerbeek"
+      "name": "Les relais givrés",
+      "description": "5 coureurs dont obligatoirement 1 dame et 1 vétéran (adulte de plus de 40 ans le jour de la course, donc né avant le 18/01/1980), parcourent chacun 8 km avant d'effectuer, groupés, un dernier tour de 4 km. Chaque équipe doit donc parcourir un total de 44 km.",
+      "imgSrc": "https://o1.ldh.be/image/thumb/5a5dceb9cd7083db8b97b4ff.jpg",
+      "distance": "12 km",
+      "challenge": "Run in Brussels",
+      "date": "2020-01-12T12:00:00Z",
+      "accountNumber":"BE30 9730 7689 9311",
+      "organization":"Les lendemain de la veille",
+      "orgaUrl":"https://www.relaisgivres.be/index.php?option=com_content&view=article&id=14&Itemid=22&lang=fr#PRINCIPE_RG",
+      "price":50
+}
+
+  
+
+###
+PATCH http://localhost:3000/events/5e2d8d15d92749d29faa7757
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1ODAwNDA2ODksImV4cCI6MTU4MDIxMzQ4OSwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.T0zAHtQR5WTal-LrZjALrl3BVBwLSeIr2FG4dMUbMwrsq2Xmx7uMLTlmHgsIKMZChX1_vgWiFJgNTMU_P_cTjLPC6E8V_CchnsPLbFJ1PB5NzIxKxFCMPGokGyB0mnl72_gL0Un-c3UqloHtkfunuzhrAqea2_Y-Mbza7Qo-0ws
+
+{
+  "imgSrc": "https://o1.ldh.be/image/thumb/5a5dceb9cd7083db8b97b4ff.jpg"
 }

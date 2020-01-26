@@ -26,12 +26,11 @@ router.get('/:id', auth.authJwt, getSubscriber, (req, res) => {
 })
 
 // Create one subscriber
-router.post('/', auth.authJwt, async (req, res) => {
+router.post('/', async (req, res) => {
   const subscriber = new Subscriber({
     lastName: req.body.lastName,
     firstName: req.body.firstName,
     gender: req.body.gender,
-    mailingList: req.body.mailingList,
     email: req.body.email,
     postalCode: req.body.postalCode,
     club: req.body.club,
@@ -93,7 +92,6 @@ router.patch('/:id', auth.authJwt, getSubscriber, async (req, res) => {
   if (req.body.lastName) res.subscriber.lastName = req.body.lastName
   if (req.body.firstName) res.subscriber.firstName = req.body.firstName
   if (req.body.gender) res.subscriber.gender = req.body.gender
-  if (req.body.mailingList) res.subscriber.mailingList = req.body.mailingList
   if (req.body.email) res.subscriber.email = req.body.email
   if (req.body.postalCode) res.subscriber.postalCode = req.body.postalCode
   if (req.body.club) res.subscriber.club = req.body.club

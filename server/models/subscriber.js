@@ -17,10 +17,6 @@ var subscriberSchema = new mongoose.Schema({
     type: Boolean,
     required: true
   },
-  mailingList: {
-    type: Boolean,
-    required: true
-  },
   postalCode: {
     type: Number,
     required: true
@@ -43,8 +39,7 @@ var subscriberSchema = new mongoose.Schema({
   },
   active: {
     type: Boolean,
-    default: false,
-    unique: true
+    default: false
   },
   event_id: {
     type: ObjectId,

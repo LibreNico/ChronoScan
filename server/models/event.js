@@ -34,6 +34,10 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  orgaUrl: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     required: true,
