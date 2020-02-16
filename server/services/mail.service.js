@@ -21,18 +21,21 @@ class MailService {
         const mailOptionFR = {
             from: mailenv.EMAIL_USER,
             to: newSubscriber.email,
-            subject: `Confirmation enregistrement pour ${event.name}`,
-            html: `<p>Bonjour ${newSubscriber.firstName} ${newSubscriber.lastName},</p>
+            subject: `Confirmation enregistrement / Registratiebevestiging ${event.name}`,
+            html: ` <p>Bonjour ${newSubscriber.firstName} ${newSubscriber.lastName},</p>
+                    <p>Hallo ${newSubscriber.firstName} ${newSubscriber.lastName},</p>
+                    <p></p>
                     <p>Pour confimer votre inscription à l'événement ${event.name}, veuillez effetcure le virement: </p>
-                    <p>
+                    <p>Voer de overdracht uit om uw registratie voor het evenement ${event.name} te bevestigen:</p>
+                   
                         <ul>
-                            <li>Montant: ${event.price}€</li>
-                            <li>Numéro de compte: ${event.accountNumber}</li>
-                            <li>Nom du bénéficière: ${event.organization}</li>
-                            <li>Communication structurée: <b>${newSubscriber.bankTransferId}</b></li>
+                            <li>Montant/bedrag: ${event.price}€</li>
+                            <li>Numéro de compte/Rekeningnummer: ${event.accountNumber}</li>
+                            <li>Nom du bénéficiaire/Naam van de begunstigde:${event.organization}</li>
+                            <li>Communication structurée/Gestructureerde communicatie: <b>${newSubscriber.bankTransferId}</b></li>
                         </ul>
-                    </p>
-                    <p>Sportivement,<br/> ${event.organization}.</p>`
+                    
+                    <p>Sportivement, Sportily,<br />  ${event.organization}.</p>`
         };
 
         transporter.sendMail(mailOptionFR, callback);
@@ -43,12 +46,13 @@ class MailService {
         const mailOptionFR = {
             from: mailenv.EMAIL_USER,
             to: newSubscriber.email,
-            subject: `Confirmation payement pour ${event.name}`,
-            html: `<p>Bonjour ${newSubscriber.firstName} ${newSubscriber.lastName},</p>
-                    <p>Nous avons bien reçu votre payement pour l'événement ${event.name}:</p>
+            subject: `Confirmation paiement / Betalingsbevestiging ${event.name}`,
+            html: `<p>Bonjour / Hallo ${newSubscriber.firstName} ${newSubscriber.lastName},</p>
+                    <p>Nous avons bien reçu votre paiement pour l'événement ${event.name}:</p>
+                    <p>We hebben uw betaling voor het evenement ontvangen ${event.name}:</p>
                     <p>${event.description}</p>
-                    <p>Au ${formatDate(event.date)},</p>
-                    <p>Sportivement,</p>
+                    <p>Au/Tot ${formatDate(event.date)},</p>
+                    <p>Sportivement,Sportily,</p>
                     <p>${event.organization}.</p>`
         };
 

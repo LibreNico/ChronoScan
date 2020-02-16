@@ -52,7 +52,7 @@ var subscriberSchema = new mongoose.Schema({
     default: Date.now
   },
   birthDate: {
-    type: Date,
+    type: String,
     required: true
   }
 })

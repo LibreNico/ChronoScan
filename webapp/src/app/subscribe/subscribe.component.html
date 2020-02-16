@@ -2,21 +2,24 @@
     <h1 class="display-3" >{{run.event.name}}</h1>
     <p>{{run.event.description }}</p>
     <p><a href="{{run.event.orgaUrl }}">Plus de détails sur le site du {{run.event.organization }}</a></p>
-    <button type="submit" class="btn btn-primary btn-lg" (click)="open(content)">Subscribe »</button>
+    <button type="submit" class="btn btn-primary btn-lg" (click)="open(content)">Inscription / Inschrijving »</button>
 </div>
 
 <ngb-alert class="alert alert-success" *ngIf="subscriber" (close)="closeSuccess()">
     <p>Bonjour {{subscriber.firstName}} {{subscriber.lastName}},</p>
+    <p>Hallo {{subscriber.firstName}} {{subscriber.lastName}},</p>
+    <p></p>
     <p>Pour confimer votre inscription à l'événement {{run.event.name}}, veuillez effetcure le virement: </p>
+    <p>Voer de overdracht uit om uw registratie voor het evenement {{run.event.name}} te bevestigen:</p>
    
         <ul>
-            <li>Montant: {{run.event.price}}€</li>
-            <li>Numéro de compte: {{run.event.accountNumber}}</li>
-            <li>Nom du bénéficière: {{run.event.organization}}</li>
-            <li>Communication structurée: <b>{{subscriber.bankTransferId}}</b></li>
+            <li>Montant/bedrag: {{run.event.price}}€</li>
+            <li>Numéro de compte/Rekeningnummer: {{run.event.accountNumber}}</li>
+            <li>Nom du bénéficiaire/Naam van de begunstigde: {{run.event.organization}}</li>
+            <li>Communication structurée/Gestructureerde communicatie: <b>{{subscriber.bankTransferId}}</b></li>
         </ul>
     
-    <p>Sportivement,<br />  {{run.event.organization}}.</p>
+    <p>Sportivement, Sportily,<br />  {{run.event.organization}}.</p>
 </ngb-alert>
 
 <ngb-alert class="alert alert-danger" *ngIf="error" (close)="closeError()">
@@ -26,7 +29,7 @@
     Nicolas.
 </ngb-alert>
 
-<h1 class="display-4">Les coureurs déjà inscrits</h1>
+<h1 class="display-4">Les participants/De deelnemers</h1>
 
 <form>
     <div class="form-row align-items-center">
@@ -44,10 +47,10 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First name</th>
-            <th scope="col">Last name</th>
+            <th scope="col">Prénom / Voornaam</th>
+            <th scope="col">Nom / Naam</th>
             <th scope="col">Club</th>
-            <th scope="col">Confirm</th>
+            <th scope="col">Confirmé / Bevestigd</th>
         </tr>
     </thead>
     <tbody>
@@ -74,7 +77,7 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Subcribe to Laerbeek</h4>
+        <h4 class="modal-title" id="modal-basic-title" i18n>Laerbeek inscription / inschrijving 2020</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -83,7 +86,7 @@
         <div class="modal-body">
             <!-- start form -->
             <div class="form-group">
-                <label for="firstName">First name</label>
+                <label for="firstName" i18n>Prénom / Voornaam</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName"
                         ngModel />
@@ -93,7 +96,7 @@
 
             <!-- start form -->
             <div class="form-group">
-                <label for="lastName">Last name</label>
+                <label for="lastName" i18n>Nom / Naam</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName"
                         ngModel />
@@ -103,20 +106,19 @@
 
             <!-- start form -->
             <div class="form-group">
-                <label for="gender">Gender</label>
+                <label for="gender" i18n>Sexe / Geslacht</label>
                 <select id="gender" class="form-control" name="gender" ngModel>
-                    <option>Female</option>
-                    <option>Male</option>
+                    <option value="female">F/V</option>
+                    <option value="male">H/M</option>
                 </select>
             </div>
             <!-- end form -->
 
             <!-- start form -->
             <div class="form-group">
-                <label for="dateOfBirth">Date of birth</label>
+                <label for="dateOfBirth" i18n>Année de naissance / Geboortejaar (YYYY)</label>
                 <div class="input-group">
-                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" name="birthDate"
-                        ngModel />
+                    <input id="dateOfBirth" class="form-control" placeholder="yyyy" name="dp" name="birthDate" ngModel />
                 </div>
             </div>
             <!-- end form -->
@@ -125,7 +127,7 @@
 
             <!-- start form -->
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email" i18n>Email</label>
                 <div class="input-group">
                     <input type="email" class="form-control" id="email" placeholder="Email" name="email" ngModel>
                 </div>
@@ -134,7 +136,7 @@
 
             <!-- start form -->
             <div class="form-group">
-                <label for="postalCode">Postal code</label>
+                <label for="postalCode" i18n>Code postal / Postcode</label>
                 <div class="input-group">
                     <input type="number" class="form-control" id="postalCode" placeholder="Postal code"
                         name="postalCode" ngModel>
@@ -146,7 +148,7 @@
 
             <!-- start form -->
             <div class="form-group">
-                <label for="club">Club</label>
+                <label for="club" i18n>Club</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="club" placeholder="Club" name="club" ngModel>
                 </div>
@@ -157,12 +159,10 @@
             <!-- start form -->
             <div class="form-group">
                 <div class="form-check form-check-inline">
-                    <label for="challenge">Challenge in Brussels</label>
+                    <label for="challenge">Challenger Run In Brussels ?</label>
                     <input class="form-check-input form-checkbox" type="checkbox" id="challenge" value="participate"
                         name="challenge" ngModel>
-                    <div class="invalid-feedback">
-                        You must agree before submitting.
-                    </div>
+                    <div class="invalid-feedback" i18n>You must agree before submitting.</div>
                 </div>
             </div>
             <!-- end form -->
@@ -170,12 +170,10 @@
             <!-- start form -->
             <div class="form-group">
                 <div class="form-check form-check-inline">
-                    <label for="challenge">Je déclare que mon état de santé me permet de participer à la course</label>
+                    <label for="challenge" i18n> Je déclare que mon état de santé me permet de participer à la présente épreuve. <br /> Ik verklaar dat mijn gezondheidstoestand mij toestaat deel te nemen aan deze wedstrijd.</label>
                     <input class="form-check-input form-checkbox" type="checkbox" id="challenge" value="healthOk"
                         required>
-                    <div class="invalid-feedback">
-                        You must agree before submitting.
-                    </div>
+                    <div class="invalid-feedback" i18n> You must agree before submitting.</div>
                 </div>
             </div>
             <!-- end form -->
@@ -185,17 +183,17 @@
 
         <div class="form-text">
 
-            <small class="form-text text-muted">
-                Conformément à la réglementation européenne sur la protection des données (RGPD - 25 mai 2018), nous
-                avons besoin de votre consentement pour valider votre inscription à notre mailing list. <br />
-                Nous recueillons uniquement les données lors de votre inscription à une course. <br />
-                Elles contiennent votre nom, prénom, année de naissance, sexe, adresse email, la commune où vous résidez
-                et une éventuelle affiliation à un club. <br />
-                En vous inscrivant, vous acceptez que celles-ci soient utilisées dans le cadre de la course organisée
-                par le Joggans et l’envoi de nos newsletters. <br />
-                Nos données ne sont jamais cédées, échangées ou revendues. Vous pourrez vous désabonner à tout moment en
-                faisant la demande par email à joggansgroup@gmail.com.
+        <p>
+            <small class="form-text text-muted"  i18n>
+                *Conformément à la réglementation européenne sur la protection des données (RGPD - 25 mai 2018), nous avons besoin de votre consentement pour valider votre inscription à notre mailing list. Nous recueillons uniquement les données lors de votre inscription à une course. Elles contiennent votre nom, prénom, année de naissance, sexe, adresse email, la commune où vous résidez et une éventuelle affiliation à un club. En vous inscrivant, vous acceptez que celles-ci soient utilisées dans le cadre de la course organisée par le Joggans et l’envoi de nos newsletters. Nos données ne sont jamais cédées, échangées ou revendues. Vous pourrez vous désabonner à tout moment en faisant la demande par email à joggansgroup@gmail.com.
             </small>
+        </p>
+        <p>
+            <small class="form-text text-muted"  i18n>
+                *Conform de Europese regelgeving voor gegevensbescherming (RGPD - 25 mei 2018), hebben wij toestemming nodig om uw inschrijving te bevestigen op onze mailinglijst. Wij verzamelen uw gegevens enkel in aanloop van een wedstrijd. Deze omvatten uw naam, voornaam, geboortejaar, geslacht, e-mailadres, uw gemeente en een eventuele aansluiting bij een club. Deze zijn tevens nodig voor het goede verloop van een wedstrijd ( klassement) en voor het verzenden van onze newsletters. Onze gegevens zullen nooit doorgegeven, uitgewisseld of verkocht worden. U kan zich ten allen tijde uitschrijven op eenvoudig verzoek per e-mail naar joggansgroup@gmail.com.
+            </small>
+        </p>
+
 
         </div>
 

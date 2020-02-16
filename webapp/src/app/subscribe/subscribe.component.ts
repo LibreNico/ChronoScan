@@ -36,16 +36,13 @@ export class SubscribeComponent implements OnInit {
     this.http.get<Run>(`${environment.apiUrl}/events/${this.idRun}`).subscribe(data => 
       {
         this.run = data; 
-        console.log(data);
       });
 
   }
 
   saveClose(modal: NgbActiveModal,form: any): void {
-    console.log('you submitted value:', form);
     
     const body = new Subscriber(form, this.run.event);
-    console.log(body);
     
     this.http.post<Subscriber>(`${environment.apiUrl}/subscribers`, body).subscribe({
       next: data => this.subscriber = data,
