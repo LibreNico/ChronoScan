@@ -1,9 +1,9 @@
-POST http://localhost:3000/users/login
+POST http://localhost:3000/users/authenticate
 Content-Type: application/json
 
 {
-  "email": "nicolaslol@gmail.com",
-  "password": "Joggans123"
+  "email": "demo@gmail.com",
+  "password": "Demo123"
 }
 
 ###
@@ -11,9 +11,10 @@ POST http://localhost:3000/users/signup
 Content-Type: application/json
 
 {
-  "email": "gwenaellelol@gmail.com",
-  "firstName": "Gwenaelle",
-  "lastName": "Lol",
+  "email": "demo@gmail.com",
+  "firstName": "DemoFirst",
+  "lastName": "DemoLast",
   "club":"Joggans",
-  "password": "Joggans123"
+  "password": "Demo123"
 }
+

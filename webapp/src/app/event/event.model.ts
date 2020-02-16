@@ -9,6 +9,7 @@ export class Event {
     organization: string; //club
     orgaUrl: string;
     accountNumber: string;
+    user: string;
     _id: string;
 
   }

@@ -23,6 +23,7 @@ export class SubscribeComponent implements OnInit {
   run: Run;
   subscriber : Subscriber;
   error: any;
+  searchText: string;
 
   constructor(private route: ActivatedRoute, private modalService: NgbModal, private http: HttpClient) {
     this.idRun = this.route.snapshot.paramMap.get('id');

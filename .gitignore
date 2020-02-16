@@ -2,3 +2,4 @@
 /server/keys/*.key
 /server/node_modules/*
 /node_modules/*
+.vscode

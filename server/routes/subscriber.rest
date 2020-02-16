@@ -1,8 +1,13 @@
 GET http://localhost:3000/subscribers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1ODAwNDA2ODksImV4cCI6MTU4MDIxMzQ4OSwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.T0zAHtQR5WTal-LrZjALrl3BVBwLSeIr2FG4dMUbMwrsq2Xmx7uMLTlmHgsIKMZChX1_vgWiFJgNTMU_P_cTjLPC6E8V_CchnsPLbFJ1PB5NzIxKxFCMPGokGyB0mnl72_gL0Un-c3UqloHtkfunuzhrAqea2_Y-Mbza7Qo-0ws
 
 ###
 
 GET http://localhost:3000/subscribers/5e2d8d10d92749d29faa7756
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1ODAwNDA2ODksImV4cCI6MTU4MDIxMzQ4OSwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.T0zAHtQR5WTal-LrZjALrl3BVBwLSeIr2FG4dMUbMwrsq2Xmx7uMLTlmHgsIKMZChX1_vgWiFJgNTMU_P_cTjLPC6E8V_CchnsPLbFJ1PB5NzIxKxFCMPGokGyB0mnl72_gL0Un-c3UqloHtkfunuzhrAqea2_Y-Mbza7Qo-0ws
+
 
 ###
 
@@ -14,14 +19,13 @@ POST http://localhost:3000/subscribers
 Content-Type: application/json
 
 {
-  "lastName": "Crappe",
-  "firstName": "Nicolas",
+  "lastName": "Bobby",
+  "firstName": "Lol",
   "gender": true,
-  "mailingList": true,
   "email": "crappe.nicolas@gmail.com",
   "club": "Joggans",
   "challenge": true,
-  "event_id": "5e178da77a2e1899b1f4819a",
+  "event_id": "5e2d8d10d92749d29faa7756",
   "birthDate": "1990-11-11",
   "postalCode": 1090
 }

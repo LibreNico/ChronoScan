@@ -39,20 +39,26 @@ router.post('/', async (req, res) => {
     birthDate: req.body.birthDate,
   })
 
+
+
   try {
     const event = await Event.findById(subscriber.event_id)
     const newSubscriber = await subscriber.save();
+
     mail.sendMailPayMe(newSubscriber, event, (err, info) => {
       if (err) {
-        return res.status(HTTPStatus.INTERNAL_SERVER_ERROR).json(err);
+        console.error(err);
       }
       console.log(info);
-      return res.status(201).json(newSubscriber);
-    })
+    });
+    return res.status(201).json(newSubscriber);
 
   } catch (err) {
     res.status(400).json({ message: err.message })
   }
+
+
+
 })
 
 router.post('/confirmation/:id', auth.authJwt, async (req, res) => {
@@ -63,20 +69,24 @@ router.post('/confirmation/:id', auth.authJwt, async (req, res) => {
       const event = await Event.findById(req.params.id);
       for (const bankCheck of req.body) {
         if (bankCheck.price === event.price) {
-          const filter = { bankTransferId: bankCheck.structuredCom };
-          const update = { active: true };
-          // `doc` is the document _before_ `update` was applied
-          let subscriber = await Subscriber.findOneAndUpdate(filter, update);
+         
+          try{
+            const filter = { bankTransferId: bankCheck.structuredCom, active: false };
+            let subscriber = await Subscriber.findOneAndUpdate(filter, { active: true });
 
-          mail.sendMailPaidOk(subscriber, event, (err, info) => {
-            if (err) {
-              return res.status(HTTPStatus.INTERNAL_SERVER_ERROR).json(err);
-            }
-            console.log(info);
-            return res.status(201).json(newSubscriber);
-          })
+            mail.sendMailPaidOk(subscriber, event, (err, info) => {
+              if (err) {
+                return res.status(HTTPStatus.INTERNAL_SERVER_ERROR).json(err);
+              }
+              console.log(info);
+              return res.status(201).json(newSubscriber);
+            })
+          }catch(err){
+            //continue 
+            //add in error message
+          }
+      }
 
-        }
       }
 
     } catch (err) {

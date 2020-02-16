@@ -13,7 +13,7 @@ router.post('/signup', async function signUp(req, res) {
     }
 });
 
-router.post('/login', auth.authEmail, function login(req, res, next) {
+router.post('/authenticate', auth.authEmail, function login(req, res, next) {
     res.status(HTTPStatus.OK).json(req.user.toAuthJSON());
 
     return next();
