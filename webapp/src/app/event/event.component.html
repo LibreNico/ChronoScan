@@ -1,1 +1,24 @@
-<p>event works!</p>
+
+<div class="card">
+    <div class="card-header">
+        {{ event.name }} - Le {{event.date | date:'MM/dd/yyyy'}} à {{event.date | date:'H:mm'}} 
+    </div>
+    <div class="row no-gutters">
+        <div class="col-auto">
+                <img src="{{ event.imgSrc }}" class="img-fluid" alt="Run picture" style="max-height:300px;max-width:450px;">
+        </div>
+        <div class="col">
+            <div class="card-block px-2">
+                <p class="card-text">{{ event.description }}</p>
+                <p ><a href="{{ event.orgaUrl }}">Plus de détails sur le site du {{ event.organization }}</a></p>
+                <p>
+                    <a routerLink="/run/{{ event._id }}" class="btn btn-info">Inscription {{ event.distance }} - {{ event.price }}€</a>
+                    <a routerLink="/run/{{ event._id }}" class="btn btn-info" *ngIf="isOwner(event.user)">Edit</a>
+                    <a routerLink="/bankload/{{ event._id }}" class="btn btn-info" *ngIf="isOwner(event.user)">Load bank data</a>
+                </p>
+                <p class="text-secondary">Fait partie du {{ event.challenge }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+

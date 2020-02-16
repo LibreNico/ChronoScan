@@ -1,0 +1,69 @@
+
+<div class="jumbotron">
+    <h1 class="display-3" >Load bank data for XXX</h1>
+    <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />    
+</div>
+
+<div  *ngIf="header.length > 1" class="preview">
+    <h2>Preview</h2>
+
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Label</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coldata of previewRecords(); index as i">
+            <td>{{header[i]}}</td>
+            <td>{{coldata}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+  
+    <button type="submit" class="btn btn-primary btn-lg" (click)="open(content)" >Load »</button>
+</div>
+
+<p *ngIf="header.length < 1">You need to load a file...</p>
+
+
+<!-- ######### MODAL  #########  -->
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Save bank data</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form #f="ngForm">
+        <div class="modal-body">
+            <!-- start form -->
+            <div class="form-group">
+                <label for="csvPositionBankCom">Bank communication</label>
+                <select class="form-control" id="csvPositionBankCom" name="csvPositionBankCom" ngModel >
+                    <option *ngFor="let head of header; index as i" [ngValue]="i">{{head}}</option>
+                  </select>
+            </div>
+            <!-- end form -->
+
+            <!-- start form -->
+            <div class="form-group">
+                <label for="csvPositionAmount">Amount</label>
+                <select class="form-control" id="csvPositionAmount" name="csvPositionAmount" ngModel >
+                    <option *ngFor="let head of header; index as i" [ngValue]="i">{{head}}</option>
+                  </select>
+            </div>
+            <!-- end form -->
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="saveClose(modal, f.value)">Send</button>
+        </div>
+    </form>
+</ng-template>

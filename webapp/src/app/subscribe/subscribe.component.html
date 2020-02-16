@@ -1,0 +1,206 @@
+<div class="jumbotron"  *ngIf="run && run.event">
+    <h1 class="display-3" >{{run.event.name}}</h1>
+    <p>{{run.event.description }}</p>
+    <p><a href="{{run.event.orgaUrl }}">Plus de détails sur le site du {{run.event.organization }}</a></p>
+    <button type="submit" class="btn btn-primary btn-lg" (click)="open(content)">Subscribe »</button>
+</div>
+
+<ngb-alert class="alert alert-success" *ngIf="subscriber" (close)="closeSuccess()">
+    <p>Bonjour {{subscriber.firstName}} {{subscriber.lastName}},</p>
+    <p>Pour confimer votre inscription à l'événement {{run.event.name}}, veuillez effetcure le virement: </p>
+   
+        <ul>
+            <li>Montant: {{run.event.price}}€</li>
+            <li>Numéro de compte: {{run.event.accountNumber}}</li>
+            <li>Nom du bénéficière: {{run.event.organization}}</li>
+            <li>Communication structurée: <b>{{subscriber.bankTransferId}}</b></li>
+        </ul>
+    
+    <p>Sportivement,<br />  {{run.event.organization}}.</p>
+</ngb-alert>
+
+<ngb-alert class="alert alert-danger" *ngIf="error" (close)="closeError()">
+    Une erreur c'est produite, veuillez prendre contact avec <b>joggansgroupe@gmail.com</b> avec ce messe: <br />
+    <i>{{ error.error.message }}</i><br />
+    Merci de votre compéhension, <br />
+    Nicolas.
+</ngb-alert>
+
+<h1 class="display-4">Les coureurs déjà inscrits</h1>
+
+<form>
+    <div class="form-row align-items-center">
+        <div class="col-sm-12">
+            <label class="sr-only" for="inlineFormInput">Name</label>
+            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Search" [(ngModel)]="searchText" name="searchText">
+        </div>
+
+    </div>
+</form>
+
+<p></p>
+
+<table class="table table-striped" *ngIf="run && run.subcribers">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Club</th>
+            <th scope="col">Confirm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let subcriber of run.subcribers  | filter : searchText; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+                <ngb-highlight [result]="subcriber.firstName"></ngb-highlight>
+            </td>
+            <td>
+                <ngb-highlight [result]="subcriber.lastName"></ngb-highlight>
+            </td>
+            <td>
+                <ngb-highlight [result]="subcriber.club"></ngb-highlight>
+            </td>
+            <td>
+                <fa-icon [icon]="getIcon(subcriber.active)" ></fa-icon>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ######### MODAL  ######### -->
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Subcribe to Laerbeek</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form #f="ngForm">
+        <div class="modal-body">
+            <!-- start form -->
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName"
+                        ngModel />
+                </div>
+            </div>
+            <!-- end form -->
+
+            <!-- start form -->
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName"
+                        ngModel />
+                </div>
+            </div>
+            <!-- end form -->
+
+            <!-- start form -->
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" class="form-control" name="gender" ngModel>
+                    <option>Female</option>
+                    <option>Male</option>
+                </select>
+            </div>
+            <!-- end form -->
+
+            <!-- start form -->
+            <div class="form-group">
+                <label for="dateOfBirth">Date of birth</label>
+                <div class="input-group">
+                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" name="birthDate"
+                        ngModel />
+                </div>
+            </div>
+            <!-- end form -->
+
+            <hr />
+
+            <!-- start form -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-group">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" ngModel>
+                </div>
+            </div>
+            <!-- end form -->
+
+            <!-- start form -->
+            <div class="form-group">
+                <label for="postalCode">Postal code</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="postalCode" placeholder="Postal code"
+                        name="postalCode" ngModel>
+                </div>
+            </div>
+            <!-- end form -->
+
+            <hr />
+
+            <!-- start form -->
+            <div class="form-group">
+                <label for="club">Club</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="club" placeholder="Club" name="club" ngModel>
+                </div>
+            </div>
+            <!-- end form -->
+
+
+            <!-- start form -->
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <label for="challenge">Challenge in Brussels</label>
+                    <input class="form-check-input form-checkbox" type="checkbox" id="challenge" value="participate"
+                        name="challenge" ngModel>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <!-- end form -->
+
+            <!-- start form -->
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <label for="challenge">Je déclare que mon état de santé me permet de participer à la course</label>
+                    <input class="form-check-input form-checkbox" type="checkbox" id="challenge" value="healthOk"
+                        required>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <!-- end form -->
+
+
+        </div>
+
+        <div class="form-text">
+
+            <small class="form-text text-muted">
+                Conformément à la réglementation européenne sur la protection des données (RGPD - 25 mai 2018), nous
+                avons besoin de votre consentement pour valider votre inscription à notre mailing list. <br />
+                Nous recueillons uniquement les données lors de votre inscription à une course. <br />
+                Elles contiennent votre nom, prénom, année de naissance, sexe, adresse email, la commune où vous résidez
+                et une éventuelle affiliation à un club. <br />
+                En vous inscrivant, vous acceptez que celles-ci soient utilisées dans le cadre de la course organisée
+                par le Joggans et l’envoi de nos newsletters. <br />
+                Nos données ne sont jamais cédées, échangées ou revendues. Vous pourrez vous désabonner à tout moment en
+                faisant la demande par email à joggansgroup@gmail.com.
+            </small>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="saveClose(modal, f.value)">Subcribe</button>
+        </div>
+    </form>
+</ng-template>
