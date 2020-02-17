@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer')
-var ses = require('nodemailer-ses-transport')
 const mailenv = require('../keys/mailenv')
 
 // const transporter = nodemailer.createTransport({
@@ -10,10 +9,15 @@ const mailenv = require('../keys/mailenv')
 //     }
 // });
 
-const transporter = nodemailer.createTransport(ses({
-    accessKeyId: mailenv.AMAZON_KEY,
-    secretAccessKey: mailenv.AMAZON_SECRET_KEY
-}));
+const transporter = nodemailer.createTransport("SMTP", { // Yes. SMTP!
+        host: "email-smtp.eu-west-1.amazonaws.com", // Amazon email SMTP hostname
+        secureConnection: true, // use SSL
+        port: 465, // port for secure SMTP
+        auth: {
+            user: mailenv.SMTP_USERNAME, // Use from Amazon Credentials
+            pass: mailenv.SMTP_PASSWORD // Use from Amazon Credentials
+        }
+    });
 
 const formatDate = function (d) {
     function pad(s) { return (s < 10) ? '0' + s : s; }
