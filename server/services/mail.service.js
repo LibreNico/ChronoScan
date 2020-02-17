@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer')
+var ses = require('nodemailer-ses-transport')
 const mailenv = require('../keys/mailenv')
 
 // const transporter = nodemailer.createTransport({
@@ -9,19 +10,10 @@ const mailenv = require('../keys/mailenv')
 //     }
 // });
 
-const AWS = require("aws-sdk");
-
-AWS.config.update({
-    accessKeyId: mailenv.ACCESS_KEY,
-    secretAccessKey: mailenv.SECRET_ACCESS_KEY,
-    region: mailenv.REGION
-});
-
-let transporter = nodemailer.createTransport({
-    SES: new AWS.SES({
-        apiVersion: '2010-12-01'
-    })
-});
+const transporter = nodemailer.createTransport(ses({
+    accessKeyId: mailenv.AMAZON_KEY,
+    secretAccessKey: mailenv.AMAZON_SECRET_KEY
+}));
 
 const formatDate = function (d) {
     function pad(s) { return (s < 10) ? '0' + s : s; }
