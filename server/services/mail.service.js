@@ -1,12 +1,26 @@
 const nodemailer = require('nodemailer')
 const mailenv = require('../keys/mailenv')
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: mailenv.EMAIL_USER,
-        pass: mailenv.EMAIL_PASSWORD
-    }
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: mailenv.EMAIL_USER,
+//         pass: mailenv.EMAIL_PASSWORD
+//     }
+// });
+
+const AWS = require("aws-sdk");
+
+AWS.config.update({
+    accessKeyId: mailenv.ACCESS_KEY,
+    secretAccessKey: mailenv.SECRET_ACCESS_KEY,
+    region: mailenv.REGION
+});
+
+let transporter = nodemailer.createTransport({
+    SES: new AWS.SES({
+        apiVersion: '2010-12-01'
+    })
 });
 
 const formatDate = function (d) {
