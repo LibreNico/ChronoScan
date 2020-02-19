@@ -13,15 +13,20 @@ export class Subscriber {
     bankTransferId: string;
     active: boolean;
 
-    constructor(form: any, event: Event){
-        this.lastName = form.lastName;
-        this.firstName = form.firstName;
-        this.gender = form.gender === 'Male';
-        this.email = form.email;
-        this.challenge = form.challenge;
-        this.birthDate = form.birthDate;
-        this.postalCode = form.postalCode;
-        this.event_id=event._id;
+
+    constructor(form: any, eventId: string){
+        if( form && eventId) {
+            this.lastName = form.lastName;
+            this.firstName = form.firstName;
+            this.gender = form.gender === 'male';
+            this.email = form.email;
+            this.challenge = form.challenge === true;
+            this.birthDate = form.dateOfBirth;
+            this.postalCode = form.postalCode;
+            this.event_id=eventId;
+        }
+
     }
+
   }
   

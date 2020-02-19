@@ -9,8 +9,8 @@ const mailenv = require('../keys/mailenv')
 //     }
 // });
 
-const transporter = nodemailer.createTransport("SMTP", { // Yes. SMTP!
-        host: "email-smtp.eu-west-1.amazonaws.com", // Amazon email SMTP hostname
+const transporter = nodemailer.createTransport({ // default SMTP!
+        host: "SSL0.OVH.NET", // Amazon email SMTP hostname
         secureConnection: true, // use SSL
         port: 465, // port for secure SMTP
         auth: {
@@ -29,7 +29,7 @@ class MailService {
 
     static sendMailPayMe(newSubscriber, event, callback) {
         const mailOptionFR = {
-            from: mailenv.EMAIL_USER,
+            from: mailenv.SMTP_USERNAME,
             to: newSubscriber.email,
             subject: `Confirmation enregistrement / Registratiebevestiging ${event.name}`,
             html: ` <p>Bonjour ${newSubscriber.firstName} ${newSubscriber.lastName},</p>

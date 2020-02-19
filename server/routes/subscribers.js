@@ -54,7 +54,8 @@ router.post('/', async (req, res) => {
     return res.status(201).json(newSubscriber);
 
   } catch (err) {
-    res.status(400).json({ message: err.message })
+    console.error(err);
+    res.status(400).json({ message: err })
   }
 
 

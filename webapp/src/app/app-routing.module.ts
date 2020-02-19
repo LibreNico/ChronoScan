@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { CsvloadComponent } from './csvload/csvload.component';
 import { AboutComponent } from './about/about.component';
 import { FeaturesComponent } from './features/features.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'features', component: FeaturesComponent },
-  { path: 'bankload/:id', component: CsvloadComponent }
+  { path: 'bankload/:id', component: CsvloadComponent },
+  { path: 'register/:id', component: RegisterComponent }
 
 ];
 

@@ -20,6 +20,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CsvloadComponent } from './csvload/csvload.component';
 import { FeaturesComponent } from './features/features.component';
 import { AboutComponent } from './about/about.component';
+import { RegisterComponent } from './register/register.component';
+import { DataService } from "./services/data.service";
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { AboutComponent } from './about/about.component';
     FilterSubscriberPipe,
     CsvloadComponent,
     FeaturesComponent,
-    AboutComponent
+    AboutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { AboutComponent } from './about/about.component';
     ReactiveFormsModule,
     FontAwesomeModule
   ],
-  providers: [AuthenticationService,
+  providers: [AuthenticationService,DataService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

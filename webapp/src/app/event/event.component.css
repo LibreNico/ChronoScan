@@ -11,3 +11,9 @@
 .btn-info{
     margin-right: 10px;
 }
+
+
+/* in the css file or in a style block */
+.angular-with-newlines {
+    white-space: pre-wrap;
+}

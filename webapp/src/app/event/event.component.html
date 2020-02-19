@@ -12,7 +12,7 @@
                 <p class="card-text angular-with-newlines">{{ event.description }}</p>
                 <p ><a href="{{ event.orgaUrl }}">Plus d'informations/Meer informatie: {{ event.organization }}</a></p>
                 <p>
-                    <a routerLink="/run/{{ event._id }}" class="btn btn-info">Inscription / inschrijving </a>
+                    <a routerLink="/run/{{ event._id }}" class="btn btn-info">Ouvrir / Open</a>
                     <a routerLink="/run/{{ event._id }}" class="btn btn-info" *ngIf="isOwner(event.user)">Edit</a>
                     <a routerLink="/bankload/{{ event._id }}" class="btn btn-info" *ngIf="isOwner(event.user)">Load bank data</a>
                 </p>

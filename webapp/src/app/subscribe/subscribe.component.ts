@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { Subscriber } from './subscriber.model'; 
 import { Run } from './run.model'; 
 import { environment } from '../../environments/environment';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { DataService } from "../services/data.service";
 
 
 @Component({
@@ -21,11 +21,12 @@ export class SubscribeComponent implements OnInit {
   faTimes = faTimes;
 
   run: Run;
-  subscriber : Subscriber;
-  error: any;
+
   searchText: string;
 
-  constructor(private route: ActivatedRoute, private modalService: NgbModal, private http: HttpClient) {
+  constructor(private route: ActivatedRoute
+    , private http: HttpClient
+    ,private dataService: DataService) {
     this.idRun = this.route.snapshot.paramMap.get('id');
  
     
@@ -36,35 +37,11 @@ export class SubscribeComponent implements OnInit {
     this.http.get<Run>(`${environment.apiUrl}/events/${this.idRun}`).subscribe(data => 
       {
         this.run = data; 
+        this.dataService.saveRun(this.run);
       });
 
-  }
+      
 
-  saveClose(modal: NgbActiveModal,form: any): void {
-    
-    const body = new Subscriber(form, this.run.event);
-    
-    this.http.post<Subscriber>(`${environment.apiUrl}/subscribers`, body).subscribe({
-      next: data => this.subscriber = data,
-      error: error => {this.error = error; console.error('There was an error!', error) }
-   });
-
-    modal.close();
-  }
-
-  open(content) {
-    this.modalService
-    .open(content, { ariaLabelledBy: 'modal-basic-title', size: 'xl' });
-    return false;
-  }
-
-  closeSuccess(){
-    this.subscriber = null;
-  }
-
-
-  closeError(){
-    this.error= null;
   }
 
 getIcon(active: boolean):any{
