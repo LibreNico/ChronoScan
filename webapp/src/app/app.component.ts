@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {TranslateService} from '@ngx-translate/core';
 import { AuthenticationService } from './services/authentication.service';
 import { User } from './services/user.model'; 
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -12,18 +13,26 @@ import { User } from './services/user.model';
 })
 export class AppComponent {
   currentUser: User;
+  languageIcon = faGlobe;
+  navbarCollapsed: any;
 
   constructor(
       private router: Router,
-      private authenticationService: AuthenticationService
+      private authenticationService: AuthenticationService,
+      private translate: TranslateService
   ) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+      translate.setDefaultLang('fr');
   }
 
 
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+}
+
+useLanguage(language: string) {
+  this.translate.use(language);
 }
 
 }

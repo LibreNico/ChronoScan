@@ -64,8 +64,8 @@ function formatBankTransferId(id){
 }
 
 function generateStructureBankTransfer(seq){
-  const checkDigit = new String(seq % 97).padStart(2, '0');
   const YYYY = new String(new Date().getFullYear());
+  const checkDigit = new String(((YYYY * 1000000) + seq) % 97).padStart(2, '0');
   const counter = new String(seq).padStart(6, '0'); 
   return formatBankTransferId(YYYY.concat(counter).concat(checkDigit));
 }

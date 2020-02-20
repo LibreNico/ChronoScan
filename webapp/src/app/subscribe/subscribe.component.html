@@ -1,12 +1,12 @@
 <div class="jumbotron"  *ngIf="run && run.event">
     <h1 class="display-3" >{{run.event.name}}</h1>
     <p>{{run.event.description }}</p>
-    <p><a href="{{run.event.orgaUrl }}">Plus de détails sur le site du {{run.event.organization }}</a></p>
-    <button type="submit" class="btn btn-primary btn-lg" routerLink="/register/{{run.event._id}}">Inscription / Inschrijving »</button>
+    <p><a href="{{run.event.orgaUrl }}" target="_blank">{{ 'event.info' | translate:{'websiteName': run.event.organization} }}</a></p>
+    <button type="submit" class="btn btn-primary btn-lg" routerLink="/register/{{run.event._id}}">  {{ 'subscription.button' | translate }} </button>
 </div>
 
 
-<h1 class="display-4">Les participants/De deelnemers</h1>
+<h1 class="display-4"> {{ 'subscription.title' | translate }} </h1>
 
 <form>
     <div class="form-row align-items-center">
@@ -24,10 +24,10 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Prénom / Voornaam</th>
-            <th scope="col">Nom / Naam</th>
+            <th scope="col">{{ 'register.firstname' | translate }}</th>
+            <th scope="col">{{ 'register.lastname' | translate }}</th>
             <th scope="col">Club</th>
-            <th scope="col">Confirmé / Bevestigd</th>
+            <th scope="col">{{ 'subscription.pay' | translate }}</th>
         </tr>
     </thead>
     <tbody>

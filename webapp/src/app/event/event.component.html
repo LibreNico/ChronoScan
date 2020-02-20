@@ -10,13 +10,12 @@
         <div class="col">
             <div class="card-block px-2">
                 <p class="card-text angular-with-newlines">{{ event.description }}</p>
-                <p ><a href="{{ event.orgaUrl }}">Plus d'informations/Meer informatie: {{ event.organization }}</a></p>
+                <p ><a href="{{ event.orgaUrl }}" target="_blank">{{ 'event.info' | translate:{'websiteName': event.organization} }}</a></p>
                 <p>
-                    <a routerLink="/run/{{ event._id }}" class="btn btn-info">Ouvrir / Open</a>
-                    <a routerLink="/run/{{ event._id }}" class="btn btn-info" *ngIf="isOwner(event.user)">Edit</a>
+                    <a routerLink="/run/{{ event._id }}" class="btn btn-info">{{ 'event.open' | translate }}</a>
                     <a routerLink="/bankload/{{ event._id }}" class="btn btn-info" *ngIf="isOwner(event.user)">Load bank data</a>
                 </p>
-                <p class="text-secondary">Fait partie du/Onderdeel van <i>{{ event.challenge }}</i></p>
+                <p class="text-secondary">{{ 'event.challenge' | translate:{'challengeName': event.challenge} }}</p>
             </div>
         </div>
     </div>

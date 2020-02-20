@@ -23,6 +23,7 @@ export class Subscriber {
             this.challenge = form.challenge === true;
             this.birthDate = form.dateOfBirth;
             this.postalCode = form.postalCode;
+            this.club = form.club;
             this.event_id=eventId;
         }
 
