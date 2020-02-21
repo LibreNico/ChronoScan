@@ -26,8 +26,10 @@
             <th scope="col">#</th>
             <th scope="col">{{ 'register.firstname' | translate }}</th>
             <th scope="col">{{ 'register.lastname' | translate }}</th>
-            <th scope="col">Club</th>
+            <th scope="col"  *ngIf="!isOwner(run.event.user)">Club</th>
+            <th scope="col"  *ngIf="isOwner(run.event.user)">Communication</th>
             <th scope="col">{{ 'subscription.pay' | translate }}</th>
+            <th scope="col" *ngIf="isOwner(run.event.user)">Detail</th>
         </tr>
     </thead>
     <tbody>
@@ -40,11 +42,34 @@
                 <ngb-highlight [result]="subcriber.lastName"></ngb-highlight>
             </td>
             <td>
-                <ngb-highlight [result]="subcriber.club"></ngb-highlight>
+                <ngb-highlight [result]="subcriber.club"  *ngIf="!isOwner(run.event.user)"></ngb-highlight>
+                <ngb-highlight [result]="subcriber.bankTransferId"  *ngIf="isOwner(run.event.user)"></ngb-highlight>
             </td>
             <td>
                 <fa-icon [icon]="getIcon(subcriber.active)" ></fa-icon>
             </td>
+            <td *ngIf="isOwner(run.event.user)">
+                <button class="btn btn-primary" (click)="open(content, subcriber)">Open</button>
+            </td>
         </tr>
     </tbody>
 </table>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Subscriber data</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <pre>{{currentSubscriber | json }}</pre>
+      </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+      </div>
+</ng-template>
+    
