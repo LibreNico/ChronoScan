@@ -51,7 +51,7 @@ class MailService {
                         <li>Année de naissance / Geboortejaar (YYYY): ${newSubscriber.birthDate}</li>
                         <li>Sexe / Geslacht: ${newSubscriber.gender?'H/M':'F/V'}</li>
                         <li>Code postal:${newSubscriber.postalCode}</li>
-                        <li>Club: <b>${newSubscriber.club}</b></li>
+                        <li>Club: ${newSubscriber.club}</li>
                         <li> Je déclare que mon état de santé me permet de participer à la présente épreuve. <br />
                         Ik verklaar dat mijn gezondheidstoestand mij toestaat deel te nemen aan deze wedstrijd.</li>
                     </ul>
