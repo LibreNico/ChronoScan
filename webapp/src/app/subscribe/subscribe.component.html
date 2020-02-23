@@ -1,8 +1,10 @@
 <div class="jumbotron"  *ngIf="run && run.event">
-    <h1 class="display-3" >{{run.event.name}}</h1>
-    <p>{{run.event.description }}</p>
+    <h4  >{{run.event.name}}</h4>
+
+    <p class="font-weight-light" *ngFor="let desc of run.event.description.split('\|'); "><span *ngFor="let lineDesc of desc.split('\;'); "> {{ lineDesc }}<br /></span></p>
+
     <p><a href="{{run.event.orgaUrl }}" target="_blank">{{ 'event.info' | translate:{'websiteName': run.event.organization} }}</a></p>
-    <button type="submit" class="btn btn-primary btn-lg" routerLink="/register/{{run.event._id}}">  {{ 'subscription.button' | translate }} </button>
+    <button type="submit" class="btn btn-primary btn-lg btn-block" routerLink="/register/{{run.event._id}}">  {{ 'subscription.button' | translate }} </button>
 </div>
 
 

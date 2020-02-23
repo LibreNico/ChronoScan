@@ -2,7 +2,7 @@
     "register.firstname": "Prénom",
     "register.lastname": "Nom de famille",
     "register.gender": "Sexe",
-    "register.year": "Année de naissance (YYYY)",
+    "register.year": "Année de naissance (AAAA)",
     "register.postalcode": "Code postal",
     "register.return": "Retour à la course",
     "register.title": "Enregistrement à la course",
@@ -11,7 +11,7 @@
     "register.cancel": "Annuler",
     "register.save": "Enregistrer",
     "register.errorTxt": "Une erreur c'est produite, veuillez prendre contact avec joggansgroupe@gmail.com avec ce messe:",
-    "register.errorSignature": "Veuillez accepter nos excuses, l'équipe ChronoScan.",
+    "register.errorSignature": "Nos plus sincères excuses, L'équipe ChronoScan",
     "register.confirm": "Pour confimer votre inscription à l'événement {{eventName}}, veuillez effetcure le virement: ",
     "register.amount": "Montant: {{price}}€",
     "register.bankNumber": "Numéro de compte: {{accountNumber}}",
@@ -29,9 +29,7 @@
     "header.features":"Fonctionnalités",
     "header.about":"À propos",
     "header.logout":"Déconnexion",
-    "header.language":"Langue",
-    "header.fr":"Français",
-    "header.en":"Anglais",
-    "header.nl":"Néerlandais",
-    "header.login":"S'identifier"
+    "header.admin":"Administration",
+    "register.warningMail": "Vous devriez recevoir un e-mail. N'oubliez pas de vérifier vos spams s'ils ne sont pas dans votre boîte de réception.",
+    "login.title":"Connectez-vous pour administrer une course"
   }

@@ -2,7 +2,6 @@ import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { Event } from './event.model'; 
 import { AuthenticationService } from '../services/authentication.service';
 
-
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',

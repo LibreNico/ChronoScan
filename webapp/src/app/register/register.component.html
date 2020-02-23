@@ -1,5 +1,7 @@
 
 <ngb-alert class="alert alert-success" *ngIf="subscriber" >
+    <p><b>{{ 'register.warningMail' | translate }}</b></p>
+
     <p>{{ 'register.hi' | translate:{'firstName': subscriber.firstName , 'lastname': subscriber.lastName } }}</p>
     <p></p>
     <p>{{ 'register.confirm' | translate:{'eventName': run.event.name} }}</p>

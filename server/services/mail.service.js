@@ -32,8 +32,8 @@ class MailService {
             from: mailenv.SMTP_MAIL,
             to: newSubscriber.email,
             subject: `Confirmation enregistrement / Registratiebevestiging ${event.name}`,
-            html: ` <p>Bonjour ${newSubscriber.firstName} ${newSubscriber.lastName},</p>
-                    <p>Hallo ${newSubscriber.firstName} ${newSubscriber.lastName},</p>
+            html: ` <p>Bonjour <b>${newSubscriber.firstName} ${newSubscriber.lastName}</b>,</p>
+                    <p>Hallo <b>${newSubscriber.firstName} ${newSubscriber.lastName}</b>,</p>
                     <p></p>
                     <p>Pour confimer votre inscription à l'événement ${event.name}, veuillez effetcure le virement endéans les 5 jours : </p>
                     <p>Voer de overdracht uit om uw registratie voor het evenement ${event.name} te bevestigen binnen de 5 dagen:</p>
@@ -48,8 +48,8 @@ class MailService {
                     <p>Vos informations/Uw gegevens:</p>
 
                     <ul>
-                        <li>Année de naissance / Geboortejaar (YYYY) ${newSubscriber.birthDate}€</li>
-                        <li>Sexe / Geslacht ${newSubscriber.gender}</li>
+                        <li>Année de naissance / Geboortejaar (YYYY): ${newSubscriber.birthDate}</li>
+                        <li>Sexe / Geslacht: ${newSubscriber.gender?'H/M':'F/V'}</li>
                         <li>Code postal:${newSubscriber.postalCode}</li>
                         <li>Club: <b>${newSubscriber.club}</b></li>
                         <li> Je déclare que mon état de santé me permet de participer à la présente épreuve. <br />

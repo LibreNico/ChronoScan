@@ -10,14 +10,14 @@
 
     <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" [routerLinkActive]="['active']">
+        <!-- <li class="nav-item" [routerLinkActive]="['active']">
           <a class="nav-link" [routerLink]="['/features']" (click)="navbarCollapsed = true">{{ 'header.features' | translate }}</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']">
           <a class="nav-link" [routerLink]="['/about']" (click)="navbarCollapsed = true">{{ 'header.about' | translate }}</a>
-        </li>
+        </li> -->
         <li class="nav-item" [routerLinkActive]="['active']">
-          <a class="nav-link" [routerLink]="['/login']" (click)="navbarCollapsed = true" *ngIf="!currentUser">{{ 'header.login' | translate }}</a>
+          <a class="nav-link" [routerLink]="['/login']" (click)="navbarCollapsed = true" *ngIf="!currentUser">{{ 'header.admin' | translate }}</a>
           <a class="nav-link" [routerLink]="['/login']" (click)="logout(); navbarCollapsed = true" *ngIf="currentUser">{{ 'header.logout' | translate }}</a>
         </li>
       </ul>

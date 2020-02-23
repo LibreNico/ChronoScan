@@ -1,23 +1,32 @@
 
 <div class="card">
     <div class="card-header">
-        {{ event.name }} » {{event.date | date:'dd/MM/yyyy'}} - {{event.date | date:'H:mm'}}  » {{ event.price }}€
+        {{ event.name }} » {{event.date | date:'dd/MM/yyyy'}} - {{event.date | date:'H:mm'}} 
     </div>
-    <div class="row no-gutters">
-        <div class="col-auto">
-                <img src="{{ event.imgSrc }}" class="img-fluid" alt="Run picture" style="max-height:300px;max-width:450px;">
-        </div>
-        <div class="col">
-            <div class="card-block px-2">
-                <p class="card-text angular-with-newlines">{{ event.description }}</p>
-                <p ><a href="{{ event.orgaUrl }}" target="_blank">{{ 'event.info' | translate:{'websiteName': event.organization} }}</a></p>
-                <p>
-                    <a routerLink="/run/{{ event._id }}" class="btn btn-info">{{ 'event.open' | translate }}</a>
-                    <a routerLink="/bankload/{{ event._id }}" class="btn btn-info" *ngIf="isOwner(event.user)">Load bank data</a>
-                </p>
-                <p class="text-secondary">{{ 'event.challenge' | translate:{'challengeName': event.challenge} }}</p>
+
+    
+    <div class="card-body">
+        <div class="row no-gutters">
+            <div class="offset-md-3 col-6">
+                <img src="{{ event.imgSrc }}" class="card-img-top img-fluid" alt="Run picture">
             </div>
         </div>
+        <!-- <div class="col-auto"> -->
+        <!-- </div>
+        <div class="col"> -->
+            <!-- <div class="card-block px-2"> -->
+                <p class="card-text angular-with-newlines font-weight-light" *ngFor="let desc of event.description.split('\|'); "><span *ngFor="let lineDesc of desc.split('\;'); "> {{ lineDesc }}<br /></span></p>
+                <p >
+                    <span class="text-muted">{{ 'event.challenge' | translate:{'challengeName': event.challenge} }}</span><br />
+                    <a href="{{ event.orgaUrl }}" target="_blank">{{ 'event.info' | translate:{'websiteName': event.organization} }}</a>
+                </p>
+                <p>
+                    <a routerLink="/run/{{ event._id }}" class="btn btn-info btn-lg btn-block">{{ 'event.open' | translate }}</a>
+                    <a routerLink="/bankload/{{ event._id }}" class="btn btn-info btn-lg btn-block" *ngIf="isOwner(event.user)">Load bank data</a>
+                </p>
+                
+            <!-- </div> -->
+        <!-- </div> -->
     </div>
 </div>
 
