@@ -62,6 +62,7 @@ router.patch('/:id', auth.authJwt, getEvents, async (req, res) => {
     if (req.body.challenges) res.event.challenges = req.body.challenges
     if (req.body.date) res.event.date = req.body.date
     if (req.body.orgaUrl) res.event.orgaUrl = req.body.orgaUrl
+    if (req.body.accountNumber) res.event.accountNumber = req.body.accountNumber
 
     try {
         const updatedevent = await res.event.save()
