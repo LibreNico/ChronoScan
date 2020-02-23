@@ -65,8 +65,8 @@ class MailService {
 
                     <p>Nous contacter/Neem contact met ons op: joggansgroup@gmail.com ou http://www.joggans.be/contact/</p>
                     
-                    <p>Au plaisir de vous voir le ${formatDate(event.date)},<br />
-                    Graag tot ziens op ${formatDate(event.date)},<br />  
+                    <p>Au plaisir de vous voir le dimanche 14 juin 2020,<br />
+                    Graag tot ziens op zondag 14 juni 2020,<br />   
                     ${event.organization}.</p>`
         };
 
