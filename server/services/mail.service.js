@@ -35,7 +35,7 @@ class MailService {
             html: ` <p>Bonjour <b>${newSubscriber.firstName} ${newSubscriber.lastName}</b>,</p>
                     <p>Hallo <b>${newSubscriber.firstName} ${newSubscriber.lastName}</b>,</p>
                     <p></p>
-                    <p>Pour confimer votre inscription à l'événement ${event.name}, veuillez effetcure le virement endéans les 5 jours : </p>
+                    <p>Pour confirmer votre inscription à l'événement ${event.name}, veuillez effectuer le virement endéans les 5 jours : </p>
                     <p>Voer de overdracht uit om uw registratie voor het evenement ${event.name} te bevestigen binnen de 5 dagen:</p>
                    
                         <ul>
