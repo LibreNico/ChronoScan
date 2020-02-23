@@ -69,7 +69,7 @@ router.post('/confirmation/:id', auth.authJwt, async (req, res) => {
     try {
       const event = await Event.findById(req.params.id);
       for (const bankCheck of req.body) {
-        if (bankCheck.price === event.price) {
+        if (bankCheck.price == event.price) {
          
           try{
             const filter = { bankTransferId: bankCheck.structuredCom, active: false };
@@ -88,6 +88,39 @@ router.post('/confirmation/:id', auth.authJwt, async (req, res) => {
           }
       }
 
+      }
+
+    } catch (err) {
+      res.status(400).json({ message: err.message })
+    }
+  }
+
+})
+
+
+router.post('/active/:id', auth.authJwt, async (req, res) => {
+
+  if (req.params.id) {
+
+    try {
+      const event = await Event.findById(req.params.id);
+        if (req.body.structuredCom) {
+         
+          try{
+            const filter = { bankTransferId: req.body.structuredCom, active: false };
+            let subscriber = await Subscriber.findOneAndUpdate(filter, { active: true });
+
+            mail.sendMailPaidOk(subscriber, event, (err, info) => {
+              if (err) {
+                return res.status(HTTPStatus.INTERNAL_SERVER_ERROR).json(err);
+              }
+              console.log(info);
+              return res.status(201).json(newSubscriber);
+            })
+          }catch(err){
+            //continue 
+            //add in error message
+          }
       }
 
     } catch (err) {

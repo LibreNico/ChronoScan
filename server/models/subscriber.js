@@ -70,7 +70,15 @@ function generateStructureBankTransfer(seq){
   return formatBankTransferId(YYYY.concat(counter).concat(checkDigit));
 }
 
-
+/*
+mongo "mongodb://localhost/subscribers"
+> show dbs
+> use subscribers
+> show collections
+> db.counters.find()
+> db.counters.update({"_id": "bankSeq"},{ "seq":123456})
+> db.counters.find()
+*/
 subscriberSchema.pre('save', function(next){
   var doc = this;
   Counters.findByIdAndUpdate(
