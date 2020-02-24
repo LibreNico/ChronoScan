@@ -36,13 +36,13 @@ class MailService {
                     <p>Hallo <b>${newSubscriber.firstName} ${newSubscriber.lastName}</b>,</p>
                     <p></p>
                     <p>Pour confirmer votre inscription à l'événement ${event.name}, veuillez effectuer le virement endéans les 5 jours : </p>
-                    <p>Voer de overdracht uit om uw registratie voor het evenement ${event.name} te bevestigen binnen de 5 dagen:</p>
+                    <p>Voer de overschrijving binnen de 5 dagen uit om uw registratie voor het evenement ${event.name} te bevestigen:</p>
                    
                         <ul>
                             <li>Montant/bedrag: ${event.price}€</li>
                             <li>Numéro de compte/Rekeningnummer: ${event.accountNumber}</li>
                             <li>Nom du bénéficiaire/Naam van de begunstigde:${event.organization}</li>
-                            <li>Communication structurée/Gestructureerde communicatie: <b>${newSubscriber.bankTransferId}</b></li>
+                            <li>Communication structurée/Gestructureerde mededeling: <b>${newSubscriber.bankTransferId}</b></li>
                         </ul>
 
                     <p>Vos informations/Uw gegevens:</p>
@@ -50,7 +50,7 @@ class MailService {
                     <ul>
                         <li>Année de naissance / Geboortejaar (YYYY): ${newSubscriber.birthDate}</li>
                         <li>Sexe / Geslacht: ${newSubscriber.gender?'H/M':'F/V'}</li>
-                        <li>Code postal:${newSubscriber.postalCode}</li>
+                        <li>Code postal/Postcode: ${newSubscriber.postalCode}</li>
                         <li>Club: ${newSubscriber.club}</li>
                         <li> Je déclare que mon état de santé me permet de participer à la présente épreuve. <br />
                         Ik verklaar dat mijn gezondheidstoestand mij toestaat deel te nemen aan deze wedstrijd.</li>
@@ -81,7 +81,7 @@ class MailService {
             subject: `Confirmation paiement / Betalingsbevestiging ${event.name}`,
             html: `<p>Bonjour / Hallo ${newSubscriber.firstName} ${newSubscriber.lastName},</p>
                     <p>Nous avons bien reçu votre paiement pour l'événement ${event.name}.</p>
-                    <p>We hebben uw betaling voor het evenement ontvangen ${event.name}.</p>
+                    <p>We hebben uw betaling voor het evenement ${event.name} goed ontvangen.</p>
                    
                     <p><u><b>Quelques informations utiles: </b></u></p>
                     <p>
@@ -95,10 +95,10 @@ class MailService {
 
                     <p><u><b>Nuttige informatie: </b></u></p>
                     <p>
-                    Wij kijken er naar uit om u voor de wedstrijd de 'Laerbeeksepaden' deze zondag 14 Juni 2020 te ontvangen. <br />
-                    De ophaling van de nummers is mogelijk tussen 8u en 9u45.  <br />
+                    Wij kijken er naar uit om u voor de wedstrijd de 'Laerbeeksepaden' op zondag 14 Juni 2020 te ontvangen. <br />
+                    De ophaling van de borstnummers is mogelijk tussen 8u en 9u45.  <br />
                     Wij vragen u tijdig aanwezig te zijn, de start is namelijk op 500m van het secretariaat.  <br />
-                    BELANGRIJK : Om aan te komen moet u een spooroverweg oversteken.  <br />
+                    <u>BELANGRIJK:</u> Om aan te komen moet u een spooroverweg oversteken.  <br />
                     Voor u veiligheid, vragen wij u de verkeersregels te respecteren.  <br />
                     Wees gerust, wij wachten op u om de start te geven ;-). <br />
                     Meer informatie op de website: http://www.joggans.be/laerbeek/. <br />

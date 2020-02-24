@@ -62,36 +62,51 @@ router.post('/', async (req, res) => {
 
 })
 
+//TODO refactor too much lines
 router.post('/confirmation/:id', auth.authJwt, async (req, res) => {
 
   if (req.params.id) {
 
     try {
       const event = await Event.findById(req.params.id);
+      var numberOfConfirm = 0;
+      var numberOfNotFound = 0;
+
+
       for (const bankCheck of req.body) {
+
         if (bankCheck.price == event.price) {
-         
-          try{
+          try {
             const filter = { bankTransferId: bankCheck.structuredCom, active: false };
             let subscriber = await Subscriber.findOneAndUpdate(filter, { active: true });
 
-            mail.sendMailPaidOk(subscriber, event, (err, info) => {
-              if (err) {
-                return res.status(HTTPStatus.INTERNAL_SERVER_ERROR).json(err);
-              }
-              console.log(info);
-              return res.status(201).json(newSubscriber);
-            })
-          }catch(err){
-            //continue 
-            //add in error message
+            if(subscriber){
+              mail.sendMailPaidOk(subscriber, event, (err, info) => {
+                if (err) {
+                  console.error(err);
+                }
+                //console.log(info);
+              });
+              numberOfConfirm++;
+            }else{
+              numberOfNotFound++;
+            }
+   
+          } catch (err) {
+            console.error(err);
+            numberOfNotFound++;
           }
-      }
+        }
 
-      }
+      } //end of for
+
+      return res.status(HTTPStatus.OK).json({
+        message: `People with payment validated: ${numberOfConfirm}; People not found: ${numberOfNotFound}` 
+       });
 
     } catch (err) {
-      res.status(400).json({ message: err.message })
+      console.error(err);
+      res.status(400).json({ message: err })
     }
   }
 
@@ -104,23 +119,23 @@ router.post('/active/:id', auth.authJwt, async (req, res) => {
 
     try {
       const event = await Event.findById(req.params.id);
-        if (req.body.structuredCom) {
-         
-          try{
-            const filter = { bankTransferId: req.body.structuredCom, active: false };
-            let subscriber = await Subscriber.findOneAndUpdate(filter, { active: true });
+      if (req.body.structuredCom) {
 
-            mail.sendMailPaidOk(subscriber, event, (err, info) => {
-              if (err) {
-                return res.status(HTTPStatus.INTERNAL_SERVER_ERROR).json(err);
-              }
-              console.log(info);
-              return res.status(201).json(newSubscriber);
-            })
-          }catch(err){
-            //continue 
-            //add in error message
-          }
+        try {
+          const filter = { bankTransferId: req.body.structuredCom, active: false };
+          let subscriber = await Subscriber.findOneAndUpdate(filter, { active: true });
+
+          mail.sendMailPaidOk(subscriber, event, (err, info) => {
+            if (err) {
+              return res.status(HTTPStatus.INTERNAL_SERVER_ERROR).json(err);
+            }
+            console.log(info);
+            return res.status(201).json(newSubscriber);
+          })
+        } catch (err) {
+          //continue 
+          //add in error message
+        }
       }
 
     } catch (err) {
