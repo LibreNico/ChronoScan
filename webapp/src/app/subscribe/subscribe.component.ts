@@ -41,7 +41,7 @@ export class SubscribeComponent implements OnInit {
 
     this.http.get<Run>(`${environment.apiUrl}/events/${this.idRun}`).subscribe(data => {
       this.run = data;
-      this.dataService.saveRun(this.run);
+      this.dataService.setCurrentRun(this.run);
     });
 
 

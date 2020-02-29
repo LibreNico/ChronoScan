@@ -15,6 +15,7 @@ export class CsvloadComponent implements OnInit {
   records: any[] = [];  
   header: any[] = [];  
   idRun: string;
+  message: any;
 
   constructor(private route: ActivatedRoute, private modalService: NgbModal, private http: HttpClient) {
     this.idRun = this.route.snapshot.paramMap.get('id');
@@ -113,7 +114,11 @@ export class CsvloadComponent implements OnInit {
   }
 
   formatStructCom(value: String){
-    return value.replace(new RegExp("\\*", "g"), '+');
+    value = value.replace(new RegExp("\\*", "g"), '+');
+    if(value.includes('/') && !value.startsWith('+++')){
+      value = '+++' + value + '+++';
+    }
+    return value;
   }
 
 
@@ -132,16 +137,16 @@ export class CsvloadComponent implements OnInit {
 
     
 
-    console.log(body);
-    console.log(`${environment.apiUrl}/subscribers/confirmation/${this.idRun}`);
+     //console.log(body);
+    // console.log(`${environment.apiUrl}/subscribers/confirmation/${this.idRun}`);
  
     
     this.http.post<any>(`${environment.apiUrl}/subscribers/confirmation/${this.idRun}`, body).subscribe({
-      next: data => console.log('ok'+ data) ,
+      next: data => { this.message=data.message },
       error: error => console.error('There was an error!', error) 
    });
 
-    //modal.close();
+    modal.close();
   }
 
 

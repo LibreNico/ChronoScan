@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
         challenge: [''],
       });
 
-      this.dataService.currentRun.subscribe(run => this.run = run)
+      this.run = this.dataService.getCurrentRun();
 
   }
 
@@ -72,8 +72,6 @@ export class RegisterComponent implements OnInit {
     
     const body = new Subscriber(this.registerForm.value, this.idRun);
 
-
-    
     this.http.post<Subscriber>(`${environment.apiUrl}/subscribers`, body).subscribe({
       next: data => this.subscriber = data,
       error: error => {this.error = error; console.error('There was an error!', error) }

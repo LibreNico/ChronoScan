@@ -53,7 +53,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5M
       "price":50
 }
 
-  
+  //
 
 ###
 PATCH http://localhost:3000/events/5e2d8d15d92749d29faa7757
@@ -61,5 +61,26 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTEwN2M5MThmZWRjNzdmNjYxNWMxMDgiLCJpYXQiOjE1ODAwNDA2ODksImV4cCI6MTU4MDIxMzQ4OSwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.T0zAHtQR5WTal-LrZjALrl3BVBwLSeIr2FG4dMUbMwrsq2Xmx7uMLTlmHgsIKMZChX1_vgWiFJgNTMU_P_cTjLPC6E8V_CchnsPLbFJ1PB5NzIxKxFCMPGokGyB0mnl72_gL0Un-c3UqloHtkfunuzhrAqea2_Y-Mbza7Qo-0ws
 
 {
-  "imgSrc": "https://o1.ldh.be/image/thumb/5a5dceb9cd7083db8b97b4ff.jpg"
+  "accountNumber":"BE74 9730 9544 5307",
+}
+
+
+###
+
+PATCH http://ec2-34-253-189-132.eu-west-1.compute.amazonaws.com/api/events/5e495ec29b5d8e3e432a5c0a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTQ5NWMzZjliNWQ4ZTNlNDMyYTVjMDkiLCJpYXQiOjE1ODI0NjY4MzksImV4cCI6MTU4MjYzOTYzOSwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.JdNcY1580VAZQUo-EOt9MmqCcsYb1Yb5YhAneJGEPCABWw5cVDP5FNOrTEoNqfMQG4iwwAhgNW_rsaVl1s9EqC2eCAqPURm44XbYic2nF1L3KkckJIRZ03oU7y8B_O6jYd-w8wR6WOisY8nXEv9KBi2wH4MrPbXLkO77N6p5n80
+
+{
+ "accountNumber":"BE74 9730 9544 5307"
+}
+
+###
+
+PATCH http://ec2-34-253-189-132.eu-west-1.compute.amazonaws.com/api/events/5e495ec29b5d8e3e432a5c0a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTQ5NWMzZjliNWQ4ZTNlNDMyYTVjMDkiLCJpYXQiOjE1ODI0NjY4MzksImV4cCI6MTU4MjYzOTYzOSwiYXVkIjoiaHR0cDovL3d3dy5qb2dnYW5zLmJlIiwiaXNzIjoiTmljb2xhcyBDcmFwcGUiLCJzdWIiOiJqb2dnYW5zZ3JvdXBAZ21haWwuY29tIn0.JdNcY1580VAZQUo-EOt9MmqCcsYb1Yb5YhAneJGEPCABWw5cVDP5FNOrTEoNqfMQG4iwwAhgNW_rsaVl1s9EqC2eCAqPURm44XbYic2nF1L3KkckJIRZ03oU7y8B_O6jYd-w8wR6WOisY8nXEv9KBi2wH4MrPbXLkO77N6p5n80
+
+{
+ "description":"Parcours boisé et vallonné de 10 km au sein du bois du Laerbeek, l’un des plus beaux espaces verts de Bruxelles.;Bosrijk en heuvelachtig parcours van 10 km in het Laarbeekbos, één van de mooiste groene zones van Brussel.|  • Pré-inscription / Pre-registartie: 7€ ⋙ Max 500 participants/deelnemers!;  • Dimanche 14 juin 2020 à 10 heures / Zondag 14 juni 2020 om 10u;  • Jogging Ganshoren – Rue au Bois – Bosstraat 11, 1083 Ganshoren;  • Retrait des dossards de 8h à 9h45 / Afhaling borstnummers vanaf 8u tot 9u45;  • Douches, Vestiaires, Consigne / Douches, Kleedkamers, Bewaarplaats;  • Tombola, musique, bar, petite restauration / Tombola, muziek, bar, kleine restauratie"
 }

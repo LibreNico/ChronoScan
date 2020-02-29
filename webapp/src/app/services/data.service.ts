@@ -6,13 +6,16 @@ import { Run } from '../subscribe/run.model';
 @Injectable()
 export class DataService {
 
-  private subscriberSource = new BehaviorSubject<Run>(new Run);
-  currentRun = this.subscriberSource.asObservable();
+  setCurrentRun(run: Run) {
+    sessionStorage.setItem("run", JSON.stringify(run));
+  }
 
-  constructor() { }
+  getCurrentRun():Run{
+    return JSON.parse(sessionStorage.getItem("run")); 
+  }
 
-  saveRun(run: Run) {
-    this.subscriberSource.next(run)
+  clearCurrentRun(){
+    sessionStorage.clear(); 
   }
 
 }

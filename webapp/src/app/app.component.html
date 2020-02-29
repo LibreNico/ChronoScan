@@ -10,29 +10,35 @@
 
     <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item" [routerLinkActive]="['active']">
-          <a class="nav-link" [routerLink]="['/features']" (click)="navbarCollapsed = true">{{ 'header.features' | translate }}</a>
-        </li>
+  
         <li class="nav-item" [routerLinkActive]="['active']">
           <a class="nav-link" [routerLink]="['/about']" (click)="navbarCollapsed = true">{{ 'header.about' | translate }}</a>
-        </li> -->
+        </li> 
         <li class="nav-item" [routerLinkActive]="['active']">
           <a class="nav-link" [routerLink]="['/login']" (click)="navbarCollapsed = true" *ngIf="!currentUser">{{ 'header.admin' | translate }}</a>
           <a class="nav-link" [routerLink]="['/login']" (click)="logout(); navbarCollapsed = true" *ngIf="currentUser">{{ 'header.logout' | translate }}</a>
         </li>
+        
       </ul>
 
-     
-      <div class="dropdown">
-        <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle ><fa-icon [icon]="languageIcon"></fa-icon></button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem (click)="useLanguage('en')">EN</button>
-            <button ngbDropdownItem (click)="useLanguage('fr')">FR</button>
-            <button ngbDropdownItem (click)="useLanguage('nl')">NL</button>
-          </div>
-        </div>
-      </div>
+      <ul class="navbar-nav  ml-auto ">
+        <li class="nav-item">
+          <a class="nav-link {{isLanguageActive('en')}} lg-click"  (click)="useLanguage('en')">EN</a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link lg-click">|</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{isLanguageActive('nl')}} lg-click"  (click)="useLanguage('nl')">NL</a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link lg-click">|</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{isLanguageActive('fr')}} lg-click" (click)="useLanguage('fr')">FR</a>
+        </li>
+      </ul>
+
  
      
     </div>

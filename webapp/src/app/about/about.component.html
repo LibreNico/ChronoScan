@@ -1,9 +1,101 @@
-<div class="jumbotron">
-    <h1 class="display-4">Joggans club</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/nicolascrappe/" role="button">Learn more</a>
+<h1 class="display-4">{{ 'about.title' | translate }}</h1>
+
+<p class="font-weight-light">{{ 'about.goal1' | translate }}<br />
+  {{ 'about.goal2' | translate }}</p>
+
+<h1 class="display-4">{{ 'about.features' | translate }}</h1>
+<div class="list-group">
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.register' | translate }}</h5>
+      <small class="text-success">{{ 'about.available' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.registerTxt' | translate }}</p>
+  </a>
+
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.check' | translate }}</h5>
+      <small class="text-success">{{ 'about.available' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.checkTxt' | translate }}</p>
+
+    <div class="row no-gutters">
+      <div class="offset-md-2 col-8">
+        <img src="./assets/img/admin2.png" class="card-img-top img-fluid" alt="Run picture">
+      </div>
+    </div>
+    <p></p>
+    <div class="row no-gutters">
+      <div class="offset-md-2 col-8">
+        <img src="./assets/img/admin1.png" class="card-img-top img-fluid" alt="Run picture">
+      </div>
+    </div>
+    <small class="text-muted">{{ 'about.checkNote' | translate }}</small>
+  </a>
+
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.notif' | translate }}</h5>
+      <small class="text-success">{{ 'about.available' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.notifTxt' | translate }}</p>
+  </a>
+
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.security' | translate }}</h5>
+      <small class="text-success">{{ 'about.available' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.securityTxt' | translate }}</p>
+  </a>
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.techno' | translate }}</h5>
+      <small class="text-success">{{ 'about.available' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.technoTxt' | translate }}</p>
+    <p class="mb-1"><a class="btn btn-primary btn-lg" href="https://github.com/LibreNico/ChronoScan"
+        target="_blank">{{ 'about.technoButon' | translate }}</a></p>
+  </a>
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.language' | translate }}</h5>
+      <small class="text-success">{{ 'about.available' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.languageTxt' | translate }} 
+      <a href="https://docs.google.com/spreadsheets/d/1UioSE1674743V1qyAsKNYqGO98GSMbyXg7E7H4rwNhY/edit?usp=sharing" target="_blank">google scheet</a>.
     </p>
-  </div>
+  </a>
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.timing' | translate }}</h5>
+      <small class="text-muted">{{ 'about.todo' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.timingTxt' | translate }}</p>
+    <div class="row no-gutters">
+      <div class="offset-md-3 col-6">
+        <img src="./assets/img/scanners.jpg" class="card-img-top img-fluid" alt="Scanner">
+      </div>
+      <small class="text-muted">{{ 'about.timingNote' | translate }} <a href="./assets/img/configandroid.jpg">android config*</a></small>
+    </div>
+  </a>
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.admin' | translate }}</h5>
+      <small class="text-muted">{{ 'about.todo' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.adminTxt' | translate }}</p>
+  </a>
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ 'about.mobile' | translate }}</h5>
+      <small class="text-muted">{{ 'about.todo' | translate }}</small>
+    </div>
+    <p class="mb-1">{{ 'about.mobileTxt' | translate }}</p>
+    <small class="text-muted">{{ 'about.mobileNote' | translate }}</small>
+  </a>
+</div>
+<p></p>
+<p class="alert alert-info">{{ 'about.aboutMe' | translate }} <a href="https://www.linkedin.com/in/nicolascrappe/"
+    target="_blank">Nicolas Crappe</a></p>

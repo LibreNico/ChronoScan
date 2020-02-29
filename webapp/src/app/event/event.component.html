@@ -1,21 +1,21 @@
 
 <div class="card">
     <div class="card-header">
-        {{ event.name }} » {{event.date | date:'dd/MM/yyyy'}} - {{event.date | date:'H:mm'}} 
+        {{ event.name }} 
     </div>
 
     
     <div class="card-body">
         <div class="row no-gutters">
             <div class="offset-md-3 col-6">
-                <img src="{{ event.imgSrc }}" class="card-img-top img-fluid" alt="Run picture">
+                <img src="./assets/img/laerbeek.png" class="card-img-top img-fluid" alt="Run picture">
             </div>
         </div>
         <!-- <div class="col-auto"> -->
         <!-- </div>
         <div class="col"> -->
             <!-- <div class="card-block px-2"> -->
-                <p class="card-text angular-with-newlines font-weight-light" *ngFor="let desc of event.description.split('\|'); "><span *ngFor="let lineDesc of desc.split('\;'); "> {{ lineDesc }}<br /></span></p>
+                <p class="card-text font-weight-light" *ngFor="let desc of event.description.split('\|'); "><span *ngFor="let lineDesc of desc.split('\;'); "> {{ lineDesc }}<br /></span></p>
                 <p >
                     <span class="text-muted">{{ 'event.challenge' | translate:{'challengeName': event.challenge} }}</span><br />
                     <a href="{{ event.orgaUrl }}" target="_blank">{{ 'event.info' | translate:{'websiteName': event.organization} }}</a>

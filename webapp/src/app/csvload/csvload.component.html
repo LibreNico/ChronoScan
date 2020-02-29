@@ -1,10 +1,31 @@
 
-<div class="jumbotron">
-    <h1 class="display-3" >Load bank data for XXX</h1>
+<ngb-alert class="alert alert-success" *ngIf="message" >
+
+  <p>{{message}}</p>
+  
+  <button type="submit" class="btn btn-primary btn-lg" routerLink="/run/{{idRun}}">{{ 'register.return' | translate }}</button>
+
+</ngb-alert>
+
+
+<div class="card">
+  <div class="card-header">
+    Load bank data as CSV file
+  </div>
+  <div class="card-body">
+    <p class="card-text" *ngIf="header.length < 1">You need to load a CSV file of your bank.</p>
+
+    <div class="alert alert-info" role="alert">
+      To convert Excel file (.xslx) to CSV file you can use Microsoft Office/Libre Office and save as '.csv' <br />
+      Or you can also use a command line like <a href="https://pypi.org/project/xlsx2csv/">xlsx2csv</a>: <b>xlsx2csv -d ';' bank_latest.xlsx latest.csv</b>
+    </div>
+
     <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />    
+  </div>
 </div>
 
-<div  *ngIf="header.length > 1" class="preview">
+
+<div  *ngIf="header.length > 1 && !message" class="preview">
     <h2>Preview</h2>
 
 
@@ -27,15 +48,13 @@
     <button type="submit" class="btn btn-primary btn-lg" (click)="open(content)" >Load »</button>
 </div>
 
-<p *ngIf="header.length < 1">You need to load a file...</p>
-
 
 <!-- ######### MODAL  #########  -->
 
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Save bank data</h4>
+        <h4 class="modal-title" id="modal-basic-title">Select the good columns</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -44,7 +63,7 @@
         <div class="modal-body">
             <!-- start form -->
             <div class="form-group">
-                <label for="csvPositionBankCom">Bank communication</label>
+                <label for="csvPositionBankCom">Structured communication where is XXX/XXXX/XXXXX</label>
                 <select class="form-control" id="csvPositionBankCom" name="csvPositionBankCom" ngModel >
                     <option *ngFor="let head of header; index as i" [ngValue]="i">{{head}}</option>
                   </select>
@@ -53,7 +72,7 @@
 
             <!-- start form -->
             <div class="form-group">
-                <label for="csvPositionAmount">Amount</label>
+                <label for="csvPositionAmount">Amount like 7,0</label>
                 <select class="form-control" id="csvPositionAmount" name="csvPositionAmount" ngModel >
                     <option *ngFor="let head of header; index as i" [ngValue]="i">{{head}}</option>
                   </select>

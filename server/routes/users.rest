@@ -1,9 +1,9 @@
-POST http://localhost:3000/users/authenticate
+POST https://ec2-34-253-189-132.eu-west-1.compute.amazonaws.com/api/users/authenticate
 Content-Type: application/json
 
 {
-  "email": "demo@gmail.com",
-  "password": "Demo123"
+  "email": "joggansgroup@gmail.com",
+  "password": "r8x146IEbedh_coN0zuj"
 }
 
 ###
