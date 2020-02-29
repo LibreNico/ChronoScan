@@ -32,7 +32,7 @@
   "header.admin": "Administration",
   "register.warningMail": "Vous devriez recevoir un e-mail. N'oubliez pas de vérifier vos spams si le mail n’est pas arrivé dans votre boîte de réception.",
   "login.title": "Connectez-vous pour administrer une course",
-  "subscription.delay": "La confirmation de votre paiement peut prendre de 1 à 4 jours à partir du moment où vous avez effectué le virement. En cas de retard veuillez prendre contact avec le club.",
+  "subscription.delay": "La confirmation de votre paiement peut prendre entre un et quatre jours à partir du moment où vous avez effectué le virement. En cas de retard veuillez prendre contact avec le club.",
   "about.title": "Notre histoire",
   "about.goal1": "La conception initiale de cette application était d'enregistrer les coureurs et de vérifier automatiquement les paiements pour notre club: le Joggans.",
   "about.goal2": "L'objectif à long terme est de permettre à toute organisation de course de gérer électroniquement les inscriptions et le chronométrage de la course avec le scannage des dossards.",
