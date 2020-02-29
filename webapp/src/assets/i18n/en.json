@@ -40,7 +40,7 @@
   "about.register": "Register to a race",
   "about.registerTxt": "On the website anyone can subscribe to the race. To apply, the participant need to fill in a form with validation on the data.",
   "about.check": "Payments check",
-  "about.checkTxt": "The real business value of this application, no matter the bank, is that you can upload an overview of your bank transferts and our system will automaticaly confirm who has payed based on the structured communication: +++XXX/XXXX/XXXXX+++.",
+  "about.checkTxt": "The real business value of this application, no matter the bank, is that you can upload an overview of your bank transferts and our system will automaticaly confirm who has payed based on the structured communication: 123/1234/123456.",
   "about.checkNote": "The bank structured communication begins with the year followed by a sequence of 6 digits and finishing with a check digit based on module 97",
   "about.notif": "Notification via mail",
   "about.notifTxt": "As soon as the participant subscribes to a run, he will receive a summary mail. When his payment is validated, he will receive a confirmation mail.",
