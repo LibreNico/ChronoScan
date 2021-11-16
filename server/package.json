@@ -4,7 +4,7 @@
   "description": "run race register and scoring by scaning the bib numbers",
   "main": "server.js",
   "dependencies": {
-    "aws-sdk": "^2.619.0",
+    "aws-sdk": "^2.814.0",
     "bcrypt-nodejs": "0.0.3",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
